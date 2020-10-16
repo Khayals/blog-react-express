@@ -1,9 +1,9 @@
 import {Request,Response} from 'express';
-import Authentication from '../utils/Authentication';
-import authentication from '../utils/Authentication';
-import ResponseHelper from '../utils/ResponseHelper';
+import Authentication from '../../utils/Authentication';
+import authentication from '../../utils/Authentication';
+import ResponseHelper from '../../utils/ResponseHelper';
 
-const db = require('../db/models');
+const db = require('../../db/models');
 
 class AuthUserController {
     register = async (req:Request,res:Response):Promise<Response>=>{
