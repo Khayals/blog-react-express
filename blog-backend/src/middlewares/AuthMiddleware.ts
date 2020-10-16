@@ -1,19 +1,24 @@
-import {Request,Response,NextFunction} from 'express';
-import { check,validationResult } from 'express-validator';
+import { Request, Response, NextFunction } from 'express';
+import jwt from 'jsonwebtoken';
 
-class AuthMiddleware{
+import ResponseHelper from '../utils/ResponseHelper';
 
-    validateLoginUser = [
-        check('username').notEmpty().withMessage("username cant empty"),
-        check('password').notEmpty().withMessage("password can't empty"),
-        (req:Request,res:Response,next:NextFunction) =>{
-            const errors = validationResult(req);
-            if (!errors.isEmpty()) {
-                return res.status(422).send({ errors:errors.array() });
-            }
+export const auth = (req: Request,res:Response,next:NextFunction): any => {
+    if (!req.headers.authorization) {
+        return ResponseHelper.failMessage(401,res,"not auntheticated");
+    }
+
+    let secretKey = process.env.JWT_SECRET_KEY || "secret";
+    const token: string = req.headers.authorization.split(" ")[1];
+
+    try {
+        const credential: string|object = jwt.verify(token,secretKey);
+        if (credential) {
+            req.app.locals.credential = credential;
             return next();
         }
-    ];
+        return res.send("token invalid");
+    } catch (error) {
+        return res.send(error)
+    }
 }
-
-export default new AuthMiddleware();

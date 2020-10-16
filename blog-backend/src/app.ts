@@ -5,7 +5,8 @@ import compression from 'compression';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
-import AuthRoutes from './routers/AuthRoutes';
+import AuthRoutes from './routers/auth/AuthRoutes';
+import UserRoutes from './routers/user/UsersRoutes';
 
 class App{
     public app:Application;
@@ -27,7 +28,7 @@ class App{
 
     protected routes():void{
         this.app.use("/api/v1/auth",AuthRoutes);
-
+        this.app.use("/api/v1/user",UserRoutes);
     }
 }
 
