@@ -11,9 +11,11 @@ class Authentication{
         return result;
     }
 
-    public static generateToken = (id:number,name:string,username:string,password:string):string =>{
+    public static generateToken = (id:number,name:string,username:string,password:string,role_id:number):string =>{
         const secretKey:string = process.env.JWT_SECRET_KEY || "secret";
-        const token:string = jwt.sign({id,name,username,password},secretKey);
+        const token:string = jwt.sign({id,name,username,password,role_id},secretKey);
         return token;
     }
 }
+
+export default Authentication;

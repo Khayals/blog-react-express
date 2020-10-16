@@ -1,4 +1,4 @@
 /blog-backend/node_modules
 /blog-backend/build
-/blog-backend/env
+/blog-backend/.env
 /blog-backend/yarn-error.log
