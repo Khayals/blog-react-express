@@ -10,6 +10,13 @@ class ResponseHelper{
         });
     }
 
+    successMessage = (status:number,res:Response,msg:string):Response =>{
+        return res.json({
+            'status':status,
+            'message':msg,
+        });
+    }
+
     failMessage = (status:number,res:Response,msg:string):Response =>{
         return res.json({
             'status':status,

@@ -2,3 +2,5 @@
 /blog-backend/build
 /blog-backend/.env
 /blog-backend/yarn-error.log
+
+/node_modules
