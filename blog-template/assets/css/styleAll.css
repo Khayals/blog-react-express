@@ -1,0 +1,48 @@
+.text-bread-crumb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-bread-crumb span{
+    font-size: 18px;
+    color: #999;
+}
+
+.text-bread-crumb span a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #999;
+}
+
+.input-search input, .input-search .input-group-append button{
+    border-radius: 20px;
+}
+
+.bg-grey{
+    background-color:#F8F9FA;
+}
+
+.category, .top-posts{
+    background-color: #FFFFFA;
+    border: none;
+}
+
+.category-item a{
+    color: #999;
+    text-decoration: none;
+}
+
+.category-item{
+    padding: 10px;
+    border-bottom: 0.5px solid #eee;
+}
+
+.top-post-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 0.5px solid #eee;
+    cursor: pointer;
+    align-items: center;
+}
